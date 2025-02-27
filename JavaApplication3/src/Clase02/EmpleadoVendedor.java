@@ -1,22 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Clase02;
 
 import java.text.DecimalFormat;
 
-/**
- *
- * @author alexm
- */
+
 public class EmpleadoVendedor extends Empleado{
     double montovendido;
     double tasacomision;
-
-    
-
-   public EmpleadoVendedor( String dni,String nombres,String apellidos,double montovendido, double tasacomision ) {
+    public EmpleadoVendedor( String dni,String nombres,String apellidos,double montovendido, double tasacomision ) {
         super(dni, apellidos, nombres);
         this.montovendido = montovendido;
         this.tasacomision = tasacomision;

@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Caso1;
 
-/**
- *
- * @author alexm
- */
-public class Asistente { 
-    protected String codigo;
+
+public class Asistente {
     protected String nombre;
     protected String apellido;
     protected String especialidad;
@@ -18,19 +11,22 @@ public class Asistente {
     public Asistente() {
     }
 
-    public Asistente(String codigo, String nombre, String apellido, String especialidad, String afiliacion) {
-        this.codigo = codigo;
+    public Asistente( String nombre, String apellido, String especialidad, String afiliacion) {
+        
         this.nombre = nombre;
         this.apellido = apellido;
         this.especialidad = especialidad;
         this.afiliacion = afiliacion;
     }
-    
-  
-    
     public String mostrarDatos(){
-        return "\nCodigo\t\t: "+codigo+"\nNombres \t\t: "+nombre+" "+"\nApellidos \t\t: "+apellido
+        return """
+               
+               Codigo\t\t: 
+               Nombres \t\t: """+nombre+" "+"\nApellidos \t\t: "+apellido
                 + "\nEspecialidad\t\t: "+especialidad+"\n";
     }
     
 }
+
+
+

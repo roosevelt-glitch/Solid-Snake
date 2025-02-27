@@ -32,7 +32,6 @@ public class FrmDefinitivo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
-        txtCodigo = new javax.swing.JTextField();
         cbxEstudios = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txaSalida = new javax.swing.JTextArea();
@@ -44,7 +43,6 @@ public class FrmDefinitivo extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txtNombre1 = new javax.swing.JTextField();
         txtApellido1 = new javax.swing.JTextField();
-        txtCodigo1 = new javax.swing.JTextField();
         cbxAfiliacion1 = new javax.swing.JComboBox<>();
         cbxEspecialidad1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -78,15 +76,6 @@ public class FrmDefinitivo extends javax.swing.JFrame {
         txtApellido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
         jPanel1.add(txtApellido);
         txtApellido.setBounds(190, 10, 140, 60);
-
-        txtCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Codigo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCodigo);
-        txtCodigo.setBounds(350, 10, 140, 60);
 
         cbxEstudios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diplomado", "Taller" }));
         cbxEstudios.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estudios", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
@@ -159,15 +148,6 @@ public class FrmDefinitivo extends javax.swing.JFrame {
         jPanel2.add(txtApellido1);
         txtApellido1.setBounds(182, 25, 140, 60);
 
-        txtCodigo1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Codigo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
-        txtCodigo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigo1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtCodigo1);
-        txtCodigo1.setBounds(328, 25, 140, 60);
-
         cbxAfiliacion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AFP y Essalud", "Ninguna" }));
         cbxAfiliacion1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Afiliacion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
         cbxAfiliacion1.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +204,7 @@ public class FrmDefinitivo extends javax.swing.JFrame {
 
         txtExperiencia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Experiencia", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
         jPanel2.add(txtExperiencia);
-        txtExperiencia.setBounds(480, 23, 90, 60);
+        txtExperiencia.setBounds(350, 20, 90, 60);
 
         jTabbedPane1.addTab("Asistente de Gerencia", jPanel2);
 
@@ -247,7 +227,7 @@ public class FrmDefinitivo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        String codigo=txtCodigo.getText();
+       
         String nombre=txtNombre.getText();
         String apellido= txtApellido.getText();
         
@@ -255,20 +235,16 @@ public class FrmDefinitivo extends javax.swing.JFrame {
         String afili=cbxAfiliacion.getSelectedItem().toString();
         String especi=cbxEspecialidad.getSelectedItem().toString();  
         
-        AsistenteAdministrativa nuevo1= new AsistenteAdministrativa(estud,codigo,nombre,apellido,especi,afili);
+        AsistenteAdministrativa nuevo1= new AsistenteAdministrativa(estud,nombre,apellido,especi,afili);
         txaSalida.append(nuevo1.mostrarDatos());
     }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void cbxAfiliacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAfiliacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxAfiliacionActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        txtCodigo.setText("");
+        
         txtNombre.setText("");
         txtApellido.setText("");
         txaSalida.setText("");
@@ -284,14 +260,14 @@ public class FrmDefinitivo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
     private void btnBorrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrar1ActionPerformed
-       txtCodigo1.setText("");
+       
        txtNombre1.setText("");
        txtApellido1.setText("");
         txtNombre1.requestFocus();
     }//GEN-LAST:event_btnBorrar1ActionPerformed
 
     private void btnCrear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrear1ActionPerformed
-        String codigo=txtCodigo1.getText();
+        
         String nombre=txtNombre1.getText();
         String apellido= txtApellido1.getText();
         String  experiencia=txtExperiencia.getText();
@@ -300,17 +276,13 @@ public class FrmDefinitivo extends javax.swing.JFrame {
         String especi=cbxEspecialidad1.getSelectedItem().toString();
         String cato=cbxCategoria.getSelectedItem().toString();  
         
-        AsistenteDeGerencia nuevo2= new AsistenteDeGerencia(cato,afili,codigo,nombre,apellido,especi);
+        AsistenteDeGerencia nuevo2= new AsistenteDeGerencia(cato,afili,nombre,apellido,especi);
         txaSalida1.append(nuevo2.mostrarDatos());
     }//GEN-LAST:event_btnCrear1ActionPerformed
 
     private void cbxAfiliacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAfiliacion1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxAfiliacion1ActionPerformed
-
-    private void txtCodigo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigo1ActionPerformed
 
     private void txtNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre1ActionPerformed
         // TODO add your handling code here:
@@ -378,8 +350,6 @@ public class FrmDefinitivo extends javax.swing.JFrame {
     private javax.swing.JTextArea txaSalida1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtApellido1;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtCodigo1;
     private javax.swing.JTextField txtExperiencia;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre1;

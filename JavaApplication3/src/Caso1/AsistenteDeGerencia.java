@@ -7,21 +7,16 @@ public class AsistenteDeGerencia extends Asistente{
     private int experiencia;
     private int movi;
     private double sueldobase;
-   
+    private int contador;
     
-
-    public AsistenteDeGerencia(String categoria, String afiliacion, String codigo, String nombre, String apellido, String especialidad) {
-        super(codigo, nombre, apellido, especialidad, afiliacion);
+    public AsistenteDeGerencia(String categoria, String afiliacion, String nombre, String apellido, String especialidad) {
+        super(nombre, apellido, especialidad, afiliacion);
         this.categoria = categoria;
         this.experiencia = experiencia;
-        this.sueldobase = sueldobase;
-       
-        
+        this.sueldobase = sueldobase; 
     }
-
-   
-
-  public double descuentos(){
+    
+    public double descuentos(){
     if (afiliacion.equalsIgnoreCase("AFP y Essalud")) return ingresos()*0.17+ingresos()*0.5;
     else return 0;
 }
@@ -36,6 +31,12 @@ public class AsistenteDeGerencia extends Asistente{
         else if (experiencia>=8) return movi=400;
         return 0;
     }
+       public String generarCodigo(){
+        this.contador=1;
+             String codigo = String.format("AG%05d", contador);
+        contador++;
+        return codigo;
+    }
     
     public double sueldo(){
         return ingresos()-descuentos()+movilidad();
@@ -46,7 +47,7 @@ public class AsistenteDeGerencia extends Asistente{
         return """
                ASISTENTE DE GERENCIA: 
                
-               Codigo\t\t: """+codigo+"\nNombres \t\t: "+nombre+" "+"\nApellidos \t\t: "+apellido
+               Codigo\t\t: """+generarCodigo()+"\nNombres \t\t: "+nombre+" "+"\nApellidos \t\t: "+apellido
                 + "\nEspecialidad\t\t: "+especialidad+"\nSueldo Base\t\t: "+ingresos()+ "\nDescuentos por Afiliacion\t\t: "+descuentos()+
                 "\nMovilidad\t\t: "+movilidad()+"\nSueldo neto\t\t: "+sueldo()+"\n";
     }
